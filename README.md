@@ -76,7 +76,32 @@ Ma non è il massimo, non è formattato. Vado a modificare:
 Poi vado a modificare il numero degli articoli per la PAGINATION in controllers/articles_controller.rb
 e vado a cambiare il 2 con il 5.
 
-Adesso nello show degli article vado ad inserire anche qui l'orario:
+Adesso nello show degli article vado ad inserire anche qui l'orario, in questo caso devo
+mettere @article e non semplicemente article:
 
     <p><span class="glyphicon glyphicon-time"></span> Was Posted about 
     <%= time_ago_in_words(@article.created_at) %> </p>
+
+#Lezione 8
+
+Ho fatto: git add -A
+Ho fatto: git commit -m "validations and views"
+Ho fatto: git push origin master
+Ho fatto: git push heroku master
+
+Adesso vogliamo proteggere una password dall'inserimento su github. Per farlo utilizzo una GEM
+chiamata FIGARO https://rubygems.org/gems/figaro/versions/1.1.1
+Inserisco questa GEM nel GEMFILE nel gruppo development:
+
+gem 'figaro', '~> 1.1', '>= 1.1.1'
+
+Ho fatto: bundle install
+
+Adesso, dal github di Figaro, vedo che devo lanciare il comando: bundle exec figaro install
+
+Il comando crea un file application.yml
+
+#Lezione 9
+
+Andiamo a creare un file .gitignore nella root, questo indicherà a git cosa non inviare al
+repository.
