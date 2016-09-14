@@ -99,9 +99,25 @@ Ho fatto: bundle install
 
 Adesso, dal github di Figaro, vedo che devo lanciare il comando: bundle exec figaro install
 
-Il comando crea un file application.yml
+Il comando crea un file application.yml in /config.
 
 #Lezione 9
 
 Andiamo a creare un file .gitignore nella root, questo indicherà a git cosa non inviare al
-repository.
+repository, in cui inserisco:
+
+/.bundle
+
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+/log/*
+!/log/.keep
+/tmp
+/config/application.yml
+
+Ora faccio il git add -A e git commit -m "Added Figaro" e faccio git push origin master
+
+Creo un nuovo branch:
+
+git checkout -b mail
