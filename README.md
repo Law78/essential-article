@@ -121,3 +121,28 @@ Ora faccio il git add -A e git commit -m "Added Figaro" e faccio git push origin
 Creo un nuovo branch:
 
 git checkout -b mail
+
+#Lezione 11
+
+In config/initializer ho il file mail.rb che posso editare per inserire i dati dell'SMTP
+di GMAIL, in cui vado a fare queste impostazioni:
+
+	:address                =>  'smtp.gmail.com',
+...
+	:user_name              =>  ENV["GMAIL_USERNAME"],
+	:password               =>  ENV["GMAIL_PASSWORD"],
+	
+
+Adesso devo settare GMAIL_USERNAME e GMAIL_PASSWORD in application.yml creato da Figaro:
+
+GMAIL_USERNAME: postaforum@gmail.com#L
+GMAIL_PASSWORD: lamiapass
+
+Infine in config/environments in developmen.rb, vado a settare il config.action_mailer con il mio indirizzo
+di cloud9:
+
+https://essential-articles-lordkenzo.c9users.io
+
+#Lezione 12
+
+Facciamo un test
