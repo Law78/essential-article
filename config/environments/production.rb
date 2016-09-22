@@ -79,4 +79,9 @@ Rails.application.configure do
   
   config.action_mailer.default_url_options = { host: 'https://mighty-plains-89888.herokuapp.com/' }
   
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key:  ENV['MAILGUN_APIKEY'],
+    domain:   ENV['MAILGUN_DOMAIN']
+  }
 end
