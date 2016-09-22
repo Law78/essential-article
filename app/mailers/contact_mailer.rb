@@ -1,3 +1,4 @@
+
 class ContactMailer < ActionMailer::Base
   default to: "postaforum@gmail.com"
   
@@ -7,6 +8,6 @@ class ContactMailer < ActionMailer::Base
     @message = message
 
   
-  mail(from: email, subject: "Steve's Articles Contact Form Message")
+  mail(from: email, subject: "Lorenzo's Articles Contact Form Message")
   end
 end

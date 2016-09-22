@@ -16,8 +16,7 @@ gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'will_paginate', '~> 3.1'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
-
-
+gem 'mailgun_rails'
 
 
 

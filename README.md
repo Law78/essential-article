@@ -1,3 +1,5 @@
+Ricorda: Il server si lancia con rails server -p $PORT -b $IP
+
 #Lezione 3
 
 Ho clonato https://github.com/schesnowitz/Ruby-on-Rails-a-Beginners-Guide
@@ -145,4 +147,60 @@ https://essential-articles-lordkenzo.c9users.io
 
 #Lezione 12
 
-Facciamo un test
+Facciamo un test, nel video c'è un errore di scrittura dell'URL in development.rb nel
+config.action.
+
+Il problema è che pare che con GMAIL non funzioni. Il problema principale è che con
+GMAIL (e in generale con le G-Apps) ho necessità di una connessione SSL.
+
+Questa soluzione non ha funzionato:
+Installo: gem install tlsmail e lo inserisco nel GEMFILE e faccio bundle install
+
+In config/initializers/mail.rb vado ad inserire:
+
+```
+require 'tlsmail'
+```
+
+Provo a settare Yahoo: Niente :(
+
+In development.rb in  config/environments ho messo a true il seguente settaggio:
+  config.action_mailer.raise_delivery_errors = true
+In questo modo ho un riscontro su eventuali errori di invio.
+
+In config/initializer vado a cambiare in devise.rb:
+config.mailer_sender = 'do_not_reply@lorenzofranceschini.com'
+
+Ho trovato questo github:https://github.com/jorgemanrubia/mailgun_rails
+Ho inserito in GEMFILE: gem 'mailgun_rails' e fatto bundle install
+
+Poi in development.rb ho inserito:
+
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key:  ENV['MAILGUN_APIKEY'],
+    domain:   ENV['MAILGUN_DOMAIN']
+  }
+  
+e in application.yml ho messo:
+
+MAILGUN_APIKEY: 'key-397cc638645593918bf70576f6f39824'
+MAILGUN_DOMAIN: 'sandboxbe725666b52e4ce6b5ffe0ee59e65381.mailgun.org'
+
+in mail.rb ho rimosso:
+ActionMailer::Base.delivery_method = :smtp
+
+e i dati di username e password. Alla fine ho:
+
+ActionMailer::Base.smtp_settings = {
+	:address				=>	"smtp.mailgun.org",
+	:port                   =>  587,
+	:authentication         =>  :plain,
+	:enable_starttls_auto   =>	true 
+}
+
+#Lezione 13
+
+
+
+
