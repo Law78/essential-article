@@ -201,6 +201,10 @@ ActionMailer::Base.smtp_settings = {
 
 #Lezione 13
 
+Ho fatto l'aggiornamento su git di questo nuovo branch mail:
 
+git add -A
+git commit -m "Set up Mailgun Service"
+git push origin mail
 
 
