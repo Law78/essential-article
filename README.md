@@ -219,3 +219,12 @@ git add .
 git commit -m "Fix Heroku url"
 git push heroku master
 
+In Heroku sono andato sotto la scheda del progetto e in SETTINGS, sono andato a creare
+due variabili di environments per il settaggio del MAILGUN_APIKEY e MAILGUN_DOMAIN
+altrimenti non manda nulla.
+L'email mi è arrivata nello spam :D
+
+Da terminale di Cloud9 posso fare anche:
+
+heroku config:add MAILGUN_APIKEY=...... MAILGUN_DOMAIN=....
+
