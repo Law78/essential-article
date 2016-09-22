@@ -207,4 +207,15 @@ git add -A
 git commit -m "Set up Mailgun Service"
 git push origin mail
 
+git checkout master
+git merge mail
+git push origin master
+
+vai a cambiare in production.rb, altrimenti non funzionerà il recupero password:
+
+  config.action_mailer.default_url_options = { host: 'https://mighty-plains-89888.herokuapp.com/' }
+
+git add .
+git commit -m "Fix Heroku url"
+git push heroku master
 
