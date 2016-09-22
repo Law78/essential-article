@@ -184,8 +184,8 @@ Poi in development.rb ho inserito:
   
 e in application.yml ho messo:
 
-MAILGUN_APIKEY: 'key-397cc638645593918bf70576f6f39824'
-MAILGUN_DOMAIN: 'sandboxbe725666b52e4ce6b5ffe0ee59e65381.mailgun.org'
+MAILGUN_APIKEY: 'key-****'
+MAILGUN_DOMAIN: 'sandboxbe****.mailgun.org'
 
 in mail.rb ho rimosso:
 ActionMailer::Base.delivery_method = :smtp
